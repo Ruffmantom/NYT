@@ -1,6 +1,9 @@
 var queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=' + apiKey;
 var apiKey = 'GID2j6rLsppstHJDHpq4cG6z4RN7CWMC';
 var searchRecords = $('#article-count').val();
+var searchStartYear = $('#start-year').val();
+var searchEndYear = $('#end-year').val();
+
 
 
 
