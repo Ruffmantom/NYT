@@ -1,11 +1,21 @@
 // var apiKey = 'GID2j6rLsppstHJDHpq4cG6z4RN7CWMC';
 // var queryURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=' + apiKey;
 
+function updatepage(data) {
+    var numArticals = $('#article-count').val();
+    for (var i = 0; i < numArticals.length; i++) {
+        var artical = data.response.docs[i];
+        var articalCount = i + 1;
+        var $articalList = $('<ul>');
+        $articalList.addClass('list-group');
 
+        $('#articale-section').append($articalList);
+
+    }
+}
 function buildQueryUrl() {
     var myKey = 'GID2j6rLsppstHJDHpq4cG6z4RN7CWMC';
     var userSearch = $('#search-term').val().trim();
-    var searchRecords = $('#article-count').val().trim();
     var searchStartYear = $('#start-year').val().trim();
     var searchEndYear = $('#end-year').val().trim();
     if (parseInt(searchEndYear)) {
@@ -38,9 +48,7 @@ $('#run-search').on('click', function () {
     $.ajax({
         url: url,
         method: "GET"
-    }).then(function (response) {
-        console.log(response)
-    })
+    }).then(updatepage);
 
 
 })
